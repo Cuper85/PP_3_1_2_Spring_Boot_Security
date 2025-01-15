@@ -1,0 +1,59 @@
+<!DOCTYPE html>                                   <!-- На этой странице представлена форма для добавления нового пользователя -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register User</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+<h1>Register User</h1>
+
+<form action="#" th:action="@{/admin/add}" method="post">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" required/>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" required/>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" required/>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Roles:</label>
+        <select name="roleIds" multiple>
+            <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>
+        </select>
+    </div>
+
+    <br>
+
+    <div>
+        <input type="submit" value="Add User"/>
+    </div>
+
+    <br>
+
+</form>
+
+<a th:href="@{/admin}">Back to User List</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
